@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh';
+import { ViteAliases } from 'vite-aliases';
 import yaml from '@rollup/plugin-yaml';
 import copy from 'rollup-plugin-copy';
 import config from './wp-theme/wp.config.json';
@@ -9,6 +10,11 @@ const {
   themeName = 'React-Vite-Wordpress',
   themeFolder = 'theme-dist'
 } = config;
+
+const aliases = ViteAliases({
+	dir: 'src',
+	prefix: '',
+});
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -33,7 +39,10 @@ export default defineConfig(() => {
         ],
         hook: 'writeBundle'
       }),
-    ]
+    ],
+    resolve: {
+			alias: aliases
+		},
   }
 })
 
