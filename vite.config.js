@@ -20,8 +20,8 @@ export default defineConfig(() => {
       // COPY
       copy({
         targets: [
-          { src: 'wp-theme/**', dest: `${themeFolder}/${themeName}` },
-          { src: ['wp-theme/.*', '!WebKitPoint.config.json'], dest: themeName },
+          { src: ['wp-theme/**', '!**/wp.config.json'], dest: `${themeFolder}/${themeName}` },
+          { src: 'wp-theme/.*', dest: `${themeFolder}/${themeName}` },
           {
             src: 'dist/index.html', dest: `${themeFolder}/${themeName}`, rename: 'index.php',
             transform: (contents) => {

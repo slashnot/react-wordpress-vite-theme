@@ -1,5 +1,4 @@
 {
     "baseUrl" : "/Theme/wp-content/themes",
-    "themeName": "Vite-React-WP-Theme",
-    "themeFolder": "theme-dist"
+    "themeName": "Vite-React-WP-Theme"
 }
