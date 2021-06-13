@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Routes from 'routes/routes'
 import logo from './logo.svg'
-import './App.css'
+import { Button } from 'antd';
+import './App.scss'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,9 +13,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite React Wordpress theme!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
+          <Button size="large" type="primary" onClick={() => setCount((count) => count + 1)}>
+            Count is: {count}
+          </Button>
         </p>
         <p>
           Edit <code>App.jsx</code> and save to test HMR updates.
