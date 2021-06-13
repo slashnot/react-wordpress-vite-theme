@@ -2,8 +2,9 @@ import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { ViteAliases } from 'vite-aliases';
 import yaml from '@rollup/plugin-yaml';
+import del from 'rollup-plugin-delete'
 import copy from 'rollup-plugin-copy';
-import createImportPlugin from 'vite-plugin-import';
+// import createImportPlugin from 'vite-plugin-import';
 import config from './wp-theme/wp.config.json';
 
 const {
@@ -44,6 +45,9 @@ export default defineConfig(() => {
       //     'style': true,
       //   }
       // ]),
+
+      // CLEAN BEFORE DIST
+      del({ targets: `${themeFolder}/*` }),
 
       // COPY
       copy({
