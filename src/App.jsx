@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Routes from 'routes/routes'
 import logo from './logo.svg'
 import { Button } from 'antd';
+import 'antd/es/button/style/css'
 import './App.scss'
 
 function App() {

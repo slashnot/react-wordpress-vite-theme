@@ -3,25 +3,47 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 import { ViteAliases } from 'vite-aliases';
 import yaml from '@rollup/plugin-yaml';
 import copy from 'rollup-plugin-copy';
+import createImportPlugin from 'vite-plugin-import';
 import config from './wp-theme/wp.config.json';
 
 const {
-  baseUrl='',
+  baseUrl = '',
   themeName = 'React-Vite-Wordpress',
   themeFolder = 'theme-dist'
 } = config;
 
 const aliases = ViteAliases({
-	dir: 'src',
-	prefix: '',
+  dir: 'src',
+  prefix: '',
 });
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
+    // ENable if you need antd modular loading
+    // css: {
+    //   preprocessorOptions: {
+    //     less: {
+    //       javascriptEnabled: true,
+    //     },
+    //   },
+    // },
+
     plugins: [
       yaml(),
       reactRefresh(),
+      // ENable if you need antd modular loading
+      // Usage:
+      /* 
+      // import { Button } from 'antd';
+      // import 'antd/es/button/style/css'
+      */
+      // createImportPlugin([
+      //   {
+      //     libraryName: 'antd',
+      //     'style': true,
+      //   }
+      // ]),
 
       // COPY
       copy({
@@ -41,8 +63,8 @@ export default defineConfig(() => {
       }),
     ],
     resolve: {
-			alias: aliases
-		},
+      alias: aliases
+    },
   }
 })
 
